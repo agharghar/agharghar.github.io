@@ -5,7 +5,7 @@ title: None - The quieter you become, the more you can hear
 logoTitle: None
 description: The quieter you become, the more you can hear
 baseurl: "" # The subpath of your site, e.g. /blog
-url: "https://agharghar.github.io" # The base hostname & protocol for your site, e.g. http://example.com
+url: "https://none.agharghar.com" # The base hostname & protocol for your site, e.g. http://example.com
 
 #-------------------------------
 # Author Settings
@@ -26,7 +26,7 @@ hero:
 # Contact Settings
 contact:
   email: f/xrbpzlew # Add your email for contact form
-  description: Got a question, a project, or just want to discuss cybersecurity ? Feel free to reach out! Whether it's about penetration testing, security research, I'm always open to connecting. Just drop me a message, and I'll get back to you as soon as possible. # Add a description of your form
+  descripti--forceon: Got a question, a project, or just want to discuss cybersecurity ? Feel free to reach out! Whether it's about penetration testing, security research, I'm always open to connecting. Just drop me a message, and I'll get back to you as soon as possible. # Add a description of your form
 
 # NOTE
 # Norlin theme comes with a contact form built-in. You can use this form with Formspree (https://formspree.io/) service and get up to 50 submissions for free. Also, you can easily switch to another service if you want.
