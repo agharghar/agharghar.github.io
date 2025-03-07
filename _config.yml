@@ -4,7 +4,7 @@ title: None - The quieter you become, the more you can hear
 #logo: /images/Logo.png # You can add own logo. For example '/images/logo.png'.
 logoTitle: None
 description: The quieter you become, the more you can hear
-baseurl: "" # The subpath of your site, e.g. /blog
+baseurl: "https://none.agharghar.com" # The subpath of your site, e.g. /blog
 url: "" # The base hostname & protocol for your site, e.g. http://example.com
 
 
