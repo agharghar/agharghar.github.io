@@ -5,7 +5,7 @@ title: None - The quieter you become, the more you can hear
 logoTitle: None
 description: The quieter you become, the more you can hear
 baseurl: "" # The subpath of your site, e.g. /blog
-url: "https://none.agharghar.com" # The base hostname & protocol for your site, e.g. http://example.com
+url: "https://agharghar.github.io" # The base hostname & protocol for your site, e.g. http://example.com
 
 #-------------------------------
 # Author Settings
