@@ -1,23 +1,23 @@
 #-------------------------------
 # General Site Settings
-title: None - The quieter you become, the more you can hear
+title: Nullity - The quieter you become, the more you can hear
 #logo: /images/Logo.png # You can add own logo. For example '/images/logo.png'.
-logoTitle: None
+logoTitle: Nullity
 description: The quieter you become, the more you can hear
 baseurl: "" # The subpath of your site, e.g. /blog
-url: "https://none.agharghar.com" # The base hostname & protocol for your site, e.g. http://example.com
+url: "https://nullity.agharghar.com" # The base hostname & protocol for your site, e.g. http://example.com
 
 #-------------------------------
 # Author Settings
 author:
-  name: None
+  name: Nullity
   avatar: '/images/avatar.png'
 
 
 #-------------------------------
 # Hero Settings
 hero:
-  #title: None
+  #title: Nullity
   description: Another Cybersecurity Blog ¯\_(ツ)_/¯
   image: '/images/01.jpg'
 
