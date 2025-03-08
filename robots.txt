@@ -1,1 +1,3 @@
 Sitemap: https://none.agharghar.com/sitemap.xml
+User-agent: *
+Allow: /
