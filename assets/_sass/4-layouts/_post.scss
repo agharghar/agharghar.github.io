@@ -404,3 +404,46 @@
     padding: 48px 32px;
   }
 }
+
+
+
+//Copy code CSS
+
+pre.highlight {
+  position: relative;
+  padding: 8px 12px;
+  border-left: 15px solid #35383c;
+  color: #c1c2c3;
+  background-color: #222;
+  overflow: auto;
+  white-space: pre;
+  word-wrap: normal;
+}
+
+/* Style the copy button */
+pre.highlight .copy {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  background: #333;
+  color: #c1c2c3;
+  border: none;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* Show copy button on hover */
+pre.highlight:hover .copy {
+  opacity: 1;
+}
+
+/* Change style when clicked */
+pre.highlight .copy:active,
+pre.highlight .copy:focus {
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 1;
+}
