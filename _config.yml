@@ -71,6 +71,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-archives
   - jekyll-feed
+  - jekyll-toc
 
 kramdown:
   parse_block_html: true
@@ -84,6 +85,7 @@ defaults:
       path: '_pages'
     values:
       permalink: /:basename:output_ext
+      toc: true
 
 include:
   - _pages
@@ -110,3 +112,6 @@ sass:
 #     category: '/category/:name/'
 
 
+toc:
+  ordered_list: true # default is false
+  max_level: 3 # default: 6
