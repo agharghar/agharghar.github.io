@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  HELLO World
-description: Sin tantum modo ad indicia veteris memoriae cognoscenda, curiosorum. Haec et tu ita posuisti, et verba vestra sunt. Idemne potest esse dies...
+description: description ...
 date:   2025-03-07 15:01:35 +0300
 image:  '/assets/images/05.jpg'
 tags:   [Work, Technology,TEST]
