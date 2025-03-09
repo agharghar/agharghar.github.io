@@ -72,7 +72,7 @@ plugins:
   - jekyll-archives
   - jekyll-feed
   - jekyll-toc
-
+  - jekyll-cache-bust
 
 kramdown:
   parse_block_html: true

@@ -60,3 +60,123 @@ In summary, we can visualize the **Logon Process** as follows:
 In this process, a **domain logon** grants a user the necessary permissions to access both local and domain resources. For a domain logon to occur, the user must have an account in **Active Directory**. Additionally, the computer must have an account in the **Active Directory** domain and be physically connected to the network. Users must also possess the appropriate rights to log on to either a local computer or the domain. Information regarding the domain user account and group memberships is used to manage access to both domain and local resources.
 
 In our case, we are interested in **Kerberos authentication** and how **Kerberos** works internally.
+
+# Kerberos
+
+Kerberos is a network authentication protocol that ensures secure user and service authentication over potentially untrusted networks. It is also used to access resources across the network securely.
+
+## Non Technical - Kerberos
+
+Before diving into the technical details, here’s a simple explanation of how Kerberos works for non-technical. 😊
+
+ Imagine you’re at a birthday party, and there’s a huge pile of delicious **Cupcakes**. But you can’t just take one—you need a special **ticket** 🎟️ from the party host to prove you’re allowed to get a Cupcake.
+
+ - You go to the party host and say, "Hey, it’s me! Can I have a ticket to prove I am invited"?
+ - The host checks if you're invited and gives you a special pass.
+ - Now, you take your special pass and go to the host assistant.
+ - You say, "Here’s my invitation pass. Can I get a cupcake ticket"?
+ - The assistant gives you a cupcake ticket.
+ - You show this ticket to the cupcake table (the service you want to access).
+ - The cupcake table checks your ticket and says, "Yep! You’re allowed to take a cupcake!"
+ - You finally get your cupcake!
+
+
+![Kerberos Protocol - Non Technical]({{site.baseurl}}/assets/images/Kerberos/Kerberos cupcake.png)
+*Kerberos Protocol - Non Technical*
+
+
+Now let's say you enjoyed your Cupcake and want another **Cupcake** along with some **Ice cream** (I know you like sweets).
+
+Since you already have a **Cupcake Ticket** from before, you don’t need to request it again. However, you still need to ask for a new **Ice Cream Ticket** to access the ice cream.
+
+These are the steps that you need to do in order to have the **Cupcake** and the **Ice Cream**.
+
+ - You go to the **Cupcake Server** and show your **Cupcake Ticket** to get another cupcake.
+ - You go to the **Host Assistant** and show your **Invitation Ticket** to get an **Ice Cream Ticket**.
+ - Finally, you go to the **Ice Cream Server**, show your **Ice Cream Ticket**, and get your ice cream.
+
+And just like that, you’ve got both your **Cupcake** and **Ice Cream**!
+
+![Kerberos Protocol - Non Technical]({{site.baseurl}}/assets/images/Kerberos/Kerberos Ice Cream.png)
+*Kerberos Protocol - Non Technical*
+
+Now that we've grasped the basic concept of the protocol, let's dive into the technical details.
+
+## Technical - Kerberos
+
+## Terms and concepts
+
+### Realm
+
+A **realm** is essentially a designated authentication domain that defines the scope within which an authentication server is responsible for validating users, devices, or services. It sets the boundaries for where authentication can occur. However, it’s important to understand that a user and a service don't need to be in the same realm to authenticate. If the two realms trust each other, authentication can be carried out between them, a concept known as **Cross-Authentication**. A user or service is considered part of a realm if it shares a secret, like a password or key, with the authentication server of that realm.
+
+We can say that term **realm** is used to describe the scope of the Kerberos authentication. In Windows, the realm name is derived from the DNS name for the domain (ex: **wild.local**, **google.com**,..)
+
+### Principal
+
+We can combine the username and the realm to form a user **Principal Name**, commonly written with an at symbol *@* (ex: alice@wild.local).
+A **Principal** also refer to the entries in the authentication server database. A principal is associated with each user, host or service of a given realm.
+
+The principal is typically represented by the format:  
+
+```text
+<name>/[<instance>]@<realm> 
+```
+
+Here's how you can distinguish between a **user** and a **service** principal:
+
+#### **User Principal**  
+A **user principal** represents a specific individual user. It is typically represented by a simple name without any specific service or instance. For example:  
+
+```text
+acile@WILD.LOCAL
+```
+
+This refers to a user named **alice** in the **WILD.LOCAL** realm.
+
+we can also add the the instance to represent a specific role or group.
+
+```text
+acile/manager@WILD.LOCAL
+```
+
+> The instance is usually not used on user Principals
+
+#### **Service Principal**  
+A **service principal** is used for a service or application running on a server. It usually includes the service name (such as HTTP, FTP, etc.) followed by the server’s hostname or instance. For example:  
+
+```text
+HTTP/DC01@WILD.LOCAL
+MSSQL/DC01:1433@WILD.LOCAL
+```
+
+First example represents the **HTTP service** running on the **DC01** server in the **WILD.LOCAL** realm.
+
+Second example represents the **MSSQL service** running on the **DC01** server, on port **1433** on in the **WILD.LOCAL** realm.
+
+
+In summary:
+- **User principal:** `<username>@<realm>`
+- **Service principal:** `<service>/<Instance>@<realm>`
+
+This distinction helps Kerberos know if it's authenticating a person or a service.
+
+#### **Operation Principal** 
+
+In addition to users and services, some principals are essential for the authentication system itself. One key example is **krbtgt/WILD.LOCAL@WILD.LOCAL**, which is responsible for securing the **Ticket Granting Ticket (TGT)** by encrypting it. This special principal helps ensure that authentication requests are properly validated within the Kerberos system. We’ll explore this in more detail later.
+
+
+#### Key Distribution Center (KDC)
+
+
+#### Authentication Server (AS)
+
+
+#### Ticket Granting Server (TGS)
+
+
+#### Kerberos Database
+
+
+#### Ticket
+

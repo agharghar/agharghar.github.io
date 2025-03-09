@@ -103,7 +103,7 @@ layout: default
   </article>
 </div>
 <!-- end post -->
-<script src="{{ site.baseurl }}/assets/js/copycode.js"></script>
+<script src="{{ site.baseurl }} {{'/assets/js/copycode.js' | bust_file_cache}} "></script>
 {% include related-posts.html %}
 
 {% if site.disqus-identifier %} {% include disqus-comments.html %} {% endif %}
