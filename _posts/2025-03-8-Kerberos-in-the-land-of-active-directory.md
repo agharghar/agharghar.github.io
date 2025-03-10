@@ -72,22 +72,22 @@ Before diving into the technical details, here’s a simple explanation of how K
  Imagine you’re at a birthday party, and there’s a huge pile of delicious **Cupcakes**. But you can’t just take one—you need a special **ticket** 🎟️ from the party host to prove you’re allowed to get a Cupcake.
 
  - You go to the party host and say, "Hey, it’s me! Can I have a ticket to prove I am invited"?
- - The host checks if you're invited and gives you a special pass.
- - Now, you take your special pass and go to the host assistant.
- - You say, "Here’s my invitation pass. Can I get a cupcake ticket"?
- - The assistant gives you a cupcake ticket.
- - You show this ticket to the cupcake table (the service you want to access).
- - The cupcake table checks your ticket and says, "Yep! You’re allowed to take a cupcake!"
- - You finally get your cupcake!
+ - The host checks if you're invited and gives you an invitation pass.
+ - Now, you take your invitation pass and go to the host assistant.
+ - You say, "Here’s my invitation Ticket. Can I get a Cupcake ticket"?
+ - The assistant gives you a Cupcake ticket.
+ - You show this ticket to the Cupcake table (the service you want to access).
+ - The cupcake table checks your Cupcake ticket and says, "Yep! You’re allowed to take a Cupcake!"
+ - You finally get your Cupcake!
 
 
 ![Kerberos Protocol - Non Technical]({{site.baseurl}}/assets/images/Kerberos/Kerberos cupcake.png)
 *Kerberos Protocol - Non Technical*
 
 
-Now let's say you enjoyed your Cupcake and want another **Cupcake** along with some **Ice cream** (I know you like sweets).
+Now let's say you enjoyed your Cupcake and want another **Cupcake** along with some **Ice Cream**.
 
-Since you already have a **Cupcake Ticket** from before, you don’t need to request it again. However, you still need to ask for a new **Ice Cream Ticket** to access the ice cream.
+Since you already have a **Cupcake Ticket** from before, you don’t need to request it again. However, you still need to ask for an **Ice Cream Ticket** to get the ice cream.
 
 These are the steps that you need to do in order to have the **Cupcake** and the **Ice Cream**.
 
@@ -104,15 +104,15 @@ Now that we've grasped the basic concept of the protocol, let's dive into the te
 
 ## Technical - Kerberos
 
-## Terms and concepts
+### Terms and concepts
 
-### Realm
+#### Realm
 
 A **realm** is essentially a designated authentication domain that defines the scope within which an authentication server is responsible for validating users, devices, or services. It sets the boundaries for where authentication can occur. However, it’s important to understand that a user and a service don't need to be in the same realm to authenticate. If the two realms trust each other, authentication can be carried out between them, a concept known as **Cross-Authentication**. A user or service is considered part of a realm if it shares a secret, like a password or key, with the authentication server of that realm.
 
 We can say that term **realm** is used to describe the scope of the Kerberos authentication. In Windows, the realm name is derived from the DNS name for the domain (ex: **wild.local**, **google.com**,..)
 
-### Principal
+#### Principal
 
 We can combine the username and the realm to form a user **Principal Name**, commonly written with an at symbol *@* (ex: alice@wild.local).
 A **Principal** also refer to the entries in the authentication server database. A principal is associated with each user, host or service of a given realm.
@@ -125,11 +125,11 @@ The principal is typically represented by the format:
 
 Here's how you can distinguish between a **user** and a **service** principal:
 
-#### **User Principal**  
+##### User Principal
 A **user principal** represents a specific individual user. It is typically represented by a simple name without any specific service or instance. For example:  
 
 ```text
-acile@WILD.LOCAL
+alice@WILD.LOCAL
 ```
 
 This refers to a user named **alice** in the **WILD.LOCAL** realm.
@@ -137,17 +137,18 @@ This refers to a user named **alice** in the **WILD.LOCAL** realm.
 we can also add the the instance to represent a specific role or group.
 
 ```text
-acile/manager@WILD.LOCAL
+alice/manager@WILD.LOCAL
 ```
 
 > The instance is usually not used on user Principals
 
-#### **Service Principal**  
+##### Service Principal
+
 A **service principal** is used for a service or application running on a server. It usually includes the service name (such as HTTP, FTP, etc.) followed by the server’s hostname or instance. For example:  
 
 ```text
 HTTP/DC01@WILD.LOCAL
-MSSQL/DC01:1433@WILD.LOCAL
+MSSQL/DC01.WILD.LOCAL:1433@WILD.LOCAL
 ```
 
 First example represents the **HTTP service** running on the **DC01** server in the **WILD.LOCAL** realm.
@@ -161,22 +162,48 @@ In summary:
 
 This distinction helps Kerberos know if it's authenticating a person or a service.
 
-#### **Operation Principal** 
+##### Operation Principal
 
-In addition to users and services, some principals are essential for the authentication system itself. One key example is **krbtgt/WILD.LOCAL@WILD.LOCAL**, which is responsible for securing the **Ticket Granting Ticket (TGT)** by encrypting it. This special principal helps ensure that authentication requests are properly validated within the Kerberos system. We’ll explore this in more detail later.
+In addition to users and services, some principals are essential for the authentication system itself. One key example is:
+
+```text
+krbtgt/WILD.LOCAL@WILD.LOCAL
+```
+which is responsible for securing the **Ticket Granting Ticket (TGT)** by encrypting it. This special principal helps ensure that authentication requests are properly validated within the Kerberos system. We’ll explore this in more detail later.
 
 
 #### Key Distribution Center (KDC)
 
+In the Kerberos authentication protocol, the **Key Distribution Center** (KDC) is a crucial component responsible for managing secure authentication within a network. It resides entirely on a single physical server (it often coincides with a single process), the **KDC** is logically divided into **two main services** and a **Databse**:
 
-#### Authentication Server (AS)
+- **Authentication Server (AS)** 
+- **Ticket Granting Server (TGS)**
+- **Kerberos Database**
 
 
-#### Ticket Granting Server (TGS)
+##### Authentication Server (AS)
+
+The Authentication Server (**AS**) handles the initial authentication of users or clients. When a client attempts to log in, it sends a request to the AS. The AS verifies the client's credentials against its **database** and, upon successful verification, issues a **Ticket Granting Ticket** (TGT). This TGT is encrypted using the **krbtgt** principal (Host Party) password hash, ensuring its integrity and authenticity. The client can then use this TGT to request access to other services (Cupcake Tiket).
 
 
-#### Kerberos Database
+##### Ticket Granting Server (TGS)
 
+Once the client has obtained a **TGT**, it can request access to specific services by presenting the TGT to the TGS. The TGS (Party host assistant) validates the TGT and issues a Service Ticket (Cupcake Ticket), which the client can then use to authenticate to the desired service.
+
+![Kerberos Protocol - Non Technical]({{site.baseurl}}/assets/images/Kerberos/Kerberos cupcake.png)
+*Kerberos Protocol - Non Technical*
+
+##### Kerberos Database
+
+The **KDC** maintains a secure **database** that stores **secret keys** for all Principals within the network. These keys are essential for encrypting and decrypting the tickets and ensuring that only **authorized principals** can access specific services. The database acts as a trusted repository that both the AS and TGS rely upon to perform their respective functions securely.
+
+![KDC]({{site.baseurl}}/assets/images/Kerberos/KDC.png)
+*KDC*
 
 #### Ticket
+
+Based on the above we can simply say that a **ticket** is a data structure that securely transmits authentication and session information between clients and services. Issued by the **Key Distribution Center (KDC)**, tickets confirm a Principal identity and authorize access to network resources without repeatedly transmitting passwords.
+
+### Kerberos Operation
+
 
