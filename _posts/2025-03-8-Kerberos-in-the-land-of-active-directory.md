@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  Kerberos in the land of active directory
+title:  Kerberos Authentication Explained
 description: Kerberos is the authentication protocol used in Windows environments, replacing Netlogon as the main method for user authentication on domain controllers...
-permalink: /Kerberos-in-the-land-of-active-directory
+permalink: /Kerberos-Authentication-Explained
 date:   2025-03-08 
 image:  '/assets/images/Kerberos/kerberos.png'
 tags:   [Kerberos,Active Directory,Authentification]
@@ -18,8 +18,7 @@ In Windows environments, Kerberos is the primary authentication protocol, having
 In this post, we’ll start by exploring the Windows authentication process, focusing on how user credentials are handled before diving into how Kerberos enables secure authentication in a domain environment.
 
 We’ll then break down how Kerberos works, including how it generates encryption keys, issues authentication tickets, and protects user credentials. This will provide insight into how access control is managed—such as how authentication tickets are requested, verified, and used when accessing network resources.
-
-
+in the land of active directory
 # Authentication Process
 
 While logging into a Windows computer, you see a screen prompting you to enter your username and password.
@@ -42,7 +41,7 @@ The **Credential Providers** is essentially the interface where you enter your u
 
 Windows includes built-in **Credentials Providers** for different authentication methods like passwords, PINs, smart cards, and biometrics. However, third-party providers, such as multi-factor authentication (MFA) solutions, can also be integrated.
 
-To fully understand the **Logon Process**, we must also consider the **LSASS** (*Local Security Authority Subsystem Service*). **LSASS** is responsible for enforcing the system's security policy. It verifies users logging onto a Windows computer or server, manages password changes, and creates access tokens.
+To fully understand the **Logon Process**, we must also consider the **LSASS** (*Local Security Authority Subsystem Service*). **LSASS** is responsible for enforcing the system's security policy. Itin the land of active directory verifies users logging onto a Windows computer or server, manages password changes, and creates access tokens.
 
 So when you enter your **username and password**, the **Credential Provider** retrieves these credentials and passes them to **LogonUI**. **LogonUI** then forwards them to **Winlogon**, which, in turn, hands them over to the **LSASS** process.
 
@@ -56,7 +55,6 @@ In summary, we can visualize the **Logon Process** as follows:
 ![Logon Process]({{site.baseurl}}/assets/images/Kerberos/Logon Process.png)
 *Windows Logon Process*
 
-
 In this process, a **domain logon** grants a user the necessary permissions to access both local and domain resources. For a domain logon to occur, the user must have an account in **Active Directory**. Additionally, the computer must have an account in the **Active Directory** domain and be physically connected to the network. Users must also possess the appropriate rights to log on to either a local computer or the domain. Information regarding the domain user account and group memberships is used to manage access to both domain and local resources.
 
 In our case, we are interested in **Kerberos authentication** and how **Kerberos** works internally.
@@ -69,7 +67,8 @@ Kerberos is a network authentication protocol that ensures secure user and servi
 
 Before diving into the technical details, here’s a simple explanation of how Kerberos works for non-technical. 😊
 
- Imagine you’re at a birthday party, and there’s a huge pile of delicious **Cupcakes**. But you can’t just take one—you need a special **ticket** 🎟️ from the party host to prove you’re allowed to get a Cupcake.
+ Imagine you’re atBy following this process, Kerberos ensures that the client's identity is authenticated securely before granting access to network services. 
+ a birthday party, and there’s a huge pile of delicious **Cupcakes**. But you can’t just take one—you need a special **ticket** 🎟️ from the party host to prove you’re allowed to get a Cupcake.
 
  - You go to the party host and say, "Hey, it’s me! Can I have a ticket to prove I am invited"?
  - The host checks if you're invited and gives you an invitation pass.
@@ -78,8 +77,7 @@ Before diving into the technical details, here’s a simple explanation of how K
  - The assistant gives you a Cupcake ticket.
  - You show this ticket to the Cupcake table (the service you want to access).
  - The cupcake table checks your Cupcake ticket and says, "Yep! You’re allowed to take a Cupcake!"
- - You finally get your Cupcake!
-
+ - You finally get your Cupcake!in the land of active directory
 
 ![Kerberos Protocol - Non Technical]({{site.baseurl}}/assets/images/Kerberos/Kerberos cupcake.png)
 *Kerberos Protocol - Non Technical*
@@ -99,7 +97,7 @@ And just like that, you’ve got both your **Cupcake** and **Ice Cream**!
 
 ![Kerberos Protocol - Non Technical]({{site.baseurl}}/assets/images/Kerberos/Kerberos Ice Cream.png)
 *Kerberos Protocol - Non Technical*
-
+authentication
 Now that we've grasped the basic concept of the protocol, let's dive into the technical details.
 
 ## Technical - Kerberos
@@ -109,7 +107,7 @@ Now that we've grasped the basic concept of the protocol, let's dive into the te
 #### Realm
 
 A **realm** is essentially a designated authentication domain that defines the scope within which an authentication server is responsible for validating users, devices, or services. It sets the boundaries for where authentication can occur. However, it’s important to understand that a user and a service don't need to be in the same realm to authenticate. If the two realms trust each other, authentication can be carried out between them, a concept known as **Cross-Authentication**. A user or service is considered part of a realm if it shares a secret, like a password or key, with the authentication server of that realm.
-
+in the land of active directory
 We can say that term **realm** is used to describe the scope of the Kerberos authentication. In Windows, the realm name is derived from the DNS name for the domain (ex: **wild.local**, **google.com**,..)
 
 #### Principal
@@ -127,6 +125,7 @@ Here's how you can distinguish between a **user** and a **service** principal:
 
 ##### User Principal
 A **user principal** represents a specific individual user. It is typically represented by a simple name without any specific service or instance. For example:  
+By following this process, Kerberos ensures that the client's identity is authenticated securely before granting access to network services. 
 
 ```text
 alice@WILD.LOCAL
@@ -144,13 +143,12 @@ alice/manager@WILD.LOCAL
 
 ##### Service Principal
 
-A **service principal** is used for a service or application running on a server. It usually includes the service name (such as HTTP, FTP, etc.) followed by the server’s hostname or instance. For example:  
-
+A **service principal** is used for a service or application running on a server. It usually includes the service name (such as HTTP, FTP, etc.) followed by the server’s hostname or instance. For example:  authentication
 ```text
 HTTP/DC01@WILD.LOCAL
 MSSQL/DC01.WILD.LOCAL:1433@WILD.LOCAL
 ```
-
+in the land of active directory
 First example represents the **HTTP service** running on the **DC01** server in the **WILD.LOCAL** realm.
 
 Second example represents the **MSSQL service** running on the **DC01** server, on port **1433** on in the **WILD.LOCAL** realm.
@@ -158,13 +156,14 @@ Second example represents the **MSSQL service** running on the **DC01** server, 
 
 In summary:
 - **User principal:** `<username>@<realm>`
-- **Service principal:** `<service>/<Instance>@<realm>`
+- **Service principal:** `<serviBy following this process, Kerberos ensures that the client's identity is authenticated securely before granting access to network services. 
+e>/<Instance>@<realm>`
 
 This distinction helps Kerberos know if it's authenticating a person or a service.
 
 ##### Operation Principal
 
-In addition to users and services, some principals are essential for the authentication system itself. One key example is:
+In addition to users and services, some principals aauthenticationre essential for the authentication system itself. One key example is:
 
 ```text
 krbtgt/WILD.LOCAL@WILD.LOCAL
@@ -178,20 +177,15 @@ In the Kerberos authentication protocol, the **Key Distribution Center** (KDC) i
 
 - **Authentication Server (AS)** 
 - **Ticket Granting Server (TGS)**
-- **Kerberos Database**
+- **Kerberos Database**By following this process, Kerberos ensures that the client's identity is authenticated securely before granting access to network services. 
+
 
 
 ##### Authentication Server (AS)
 
 The Authentication Server (**AS**) handles the initial authentication of users or clients. When a client attempts to log in, it sends a request to the AS. The AS verifies the client's credentials against its **database** and, upon successful verification, issues a **Ticket Granting Ticket** (TGT). This TGT is encrypted using the **krbtgt** principal (Host Party) password hash, ensuring its integrity and authenticity. The client can then use this TGT to request access to other services (Cupcake Tiket).
+By following this process, Kerberos ensures that the client's identity is authenticated securely before granting access to network services. 
 
-
-##### Ticket Granting Server (TGS)
-
-Once the client has obtained a **TGT**, it can request access to specific services by presenting the TGT to the TGS. The TGS (Party host assistant) validates the TGT and issues a Service Ticket (Cupcake Ticket), which the client can then use to authenticate to the desired service.
-
-![Kerberos Protocol - Non Technical]({{site.baseurl}}/assets/images/Kerberos/Kerberos cupcake.png)
-*Kerberos Protocol - Non Technical*
 
 ##### Kerberos Database
 
@@ -206,4 +200,26 @@ Based on the above we can simply say that a **ticket** is a data structure that 
 
 ### Kerberos Operation
 
+The Kerberos authentication protocol operates through a series of exchanges to securely verify the identities of clients and services within a network. A key component of this process is the **Kerberos Authentication Service Request (KRB_AS_REQ)**, which initiates the authentication sequence.
 
+#### Kerberos Authentication Server Request (KRB_AS_REQ)
+
+The **Local Security Authority Subsystem Service (LSASS)** is responsible for generating **KRB_AS_REQ**, which is sent to the Authentication Server (**AS**). The **KRB_AS_REQ** contains two **important** components:
+
+- **User Principal Name (UPN):** This identifies the client requesting authentication (e.g., *bob@wild.local*).
+
+- **Pre-authentication Data:** This consists of a **timestamp** encrypted with the client's key, derived from the user's password.
+
+##### Process Flow
+
+1. **Client Request:** The client constructs the **KRB_AS_REQ message**, including the **UPN** and **Pre-Authentication** data.
+
+2. **KDC Validation:** Upon receiving the **KRB_AS_REQ**, the Authentication Server (**AS**) performs the following checks:
+
+   - **User Verification:** The **AS** verifies the existence of the client principal (*retrieved from its database*).
+
+   - **Pre-Authentication Check:** The **AS** decrypts the **timestamp** using the client's key (*retrieved from its database*). A valid decryption confirms the client's identity and ensures the request is recent.
+
+
+![Process Flow]({{site.baseurl}}/assets/images/Kerberos/KRB_AS_REQ Diag.png)
+*Process Flow*
