@@ -6,27 +6,30 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Nullity - The quieter you become, the more you can hear</title>
-  <meta name='description' content='The quieter you become, the more you can hear'>
+  <title>Kerberos Authentication Explained</title>
+  <meta name='description' content='Kerberos is the authentication protocol used in Windows environments, replacing Netlogon as the main method for user authentication on domain controllers...'>
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://nullity.agharghar.com/">
+  <link rel="canonical" href="https://nullity.agharghar.com/Kerberos-Authentication-Explained">
   <link rel="alternate" type="application/rss+xml" title="Nullity - The quieter you become, the more you can hear" href="/feed.xml">
   <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Nullity - The quieter you become, the more you can hear | The quieter you become, the more you can hear</title>
+<title>Kerberos Authentication Explained | Nullity - The quieter you become, the more you can hear</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Nullity - The quieter you become, the more you can hear" />
+<meta property="og:title" content="Kerberos Authentication Explained" />
 <meta name="author" content="Nullity" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The quieter you become, the more you can hear" />
-<meta property="og:description" content="The quieter you become, the more you can hear" />
-<link rel="canonical" href="https://nullity.agharghar.com/" />
-<meta property="og:url" content="https://nullity.agharghar.com/" />
+<meta name="description" content="Kerberos is the authentication protocol used in Windows environments, replacing Netlogon as the main method for user authentication on domain controllers…" />
+<meta property="og:description" content="Kerberos is the authentication protocol used in Windows environments, replacing Netlogon as the main method for user authentication on domain controllers…" />
+<link rel="canonical" href="https://nullity.agharghar.com/Kerberos-Authentication-Explained" />
+<meta property="og:url" content="https://nullity.agharghar.com/Kerberos-Authentication-Explained" />
 <meta property="og:site_name" content="Nullity - The quieter you become, the more you can hear" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Nullity - The quieter you become, the more you can hear" />
+<meta property="og:image" content="https://nullity.agharghar.com/assets/images/Kerberos/kerberos.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-03-08T00:00:00+01:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://nullity.agharghar.com/assets/images/Kerberos/kerberos.png" />
+<meta property="twitter:title" content="Kerberos Authentication Explained" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Nullity"},"description":"The quieter you become, the more you can hear","headline":"Nullity - The quieter you become, the more you can hear","name":"Nullity - The quieter you become, the more you can hear","url":"https://nullity.agharghar.com/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Nullity"},"dateModified":"2025-03-08T00:00:00+01:00","datePublished":"2025-03-08T00:00:00+01:00","description":"Kerberos is the authentication protocol used in Windows environments, replacing Netlogon as the main method for user authentication on domain controllers…","headline":"Kerberos Authentication Explained","image":"https://nullity.agharghar.com/assets/images/Kerberos/kerberos.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://nullity.agharghar.com/Kerberos-Authentication-Explained"},"url":"https://nullity.agharghar.com/Kerberos-Authentication-Explained"}</script>
 <!-- End Jekyll SEO tag -->
 
   <!-- Fonts -->
@@ -61,7 +64,7 @@
   
 
 <!-- begin header -->
-<header class="header header--top">
+<header class="header ">
   <div class="container">
     <div class="row">
       <div class="header__inner col col-12">
@@ -241,106 +244,396 @@
 
   <!-- begin content -->
   <main class="content" aria-label="Content">
-    <!-- begin hero -->
-
-<section class="hero">
-  <div class="hero__inner">
-    <div class="hero__image">
-      <img class="lazy" data-src="/assets/images/01.jpg" alt="">
-    </div>
-    <div class="hero__content">
-      <h1 class="hero__title"></h1>
-      <p class="hero__desc">Another Cybersecurity Blog ¯\_(ツ)_/¯</p>
+    <div class="post-head">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col col-6 col-t-12">
+        <div class="image-box">
+          <img class="post-image lazy" data-src="/assets/images/Kerberos/kerberos.png" alt="Kerberos Authentication Explained">
+        </div>
+      </div>
+      
+  
+      <div class="col col-6 col-t-12">
+        <div class="post-head__box">
+        
+          <div class="post__meta">
+            <span class="post__minutes">
+              
+              
+                10 min read
+              
+              <time class="post__date"
+                datetime="2025-03-08T00:00:00+01:00">Mar 8, 2025</time>
+            </span>
+          </div>
+        
+          <h2 class="post__title">Kerberos Authentication Explained</h2>
+        
+          <div class="post__bottom">
+        
+            <div class="post__author">
+              <a href="/about/" aria-label="Nullity"><img class="post__author-image"
+                  src="/assets/images/avatar.png" alt="Nullity's Picture"></a>
+            </div>
+        
+            <div class="post__bottom-meta">
+              <a href="/about/" class="post__author-link">Nullity</a>
+              
+              <span>in</span>
+              <span class="post-tags">
+                
+                <a href="/tag/Kerberos" class="post__tag">Kerberos</a>
+                
+                <a href="/tag/Active Directory" class="post__tag">Active Directory</a>
+                
+                <a href="/tag/Authentification" class="post__tag">Authentification</a>
+                
+              </span>
+              
+            </div>
+          </div>
+        
+        </div>
+      </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- begin hero -->
+<!-- begin post -->
+<div class="container">
+  <article class="post animate">
+    <div id="table-of-contents">
+      <h1>Table of Contents:</h1>
+      <ol id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#introduction">Introduction</a></li>
+<li class="toc-entry toc-h1"><a href="#authentication-process">Authentication Process</a></li>
+<li class="toc-entry toc-h1"><a href="#kerberos">Kerberos</a>
+<ol>
+<li class="toc-entry toc-h2"><a href="#non-technical---kerberos">Non Technical - Kerberos</a></li>
+<li class="toc-entry toc-h2"><a href="#technical---kerberos">Technical - Kerberos</a></li>
+</ol>
+</li>
+</ol>
+    </div>
+    <div class="post__content">
+      <h1 id="introduction">Introduction</h1>
+
+<p>In Windows environments, Kerberos is the primary authentication protocol, having replaced Netlogon as the main method for authenticating users on domain controllers since Windows 2000.</p>
+
+<p>In this post, we’ll start by exploring the Windows authentication process, focusing on how user credentials are handled before diving into how Kerberos enables secure authentication in a domain environment.</p>
+
+<p>We’ll then break down how Kerberos works, including how it generates encryption keys, issues authentication tickets, and protects user credentials. This will provide insight into how access control is managed—such as how authentication tickets are requested, verified, and used when accessing network resources.
+in the land of active directory</p>
+<h1 id="authentication-process">Authentication Process</h1>
+
+<p>While logging into a Windows computer, you see a screen prompting you to enter your username and password.</p>
+
+<p><img src="/assets/images/Kerberos/LoginUI.png" alt="LoginUI" />
+<em>LoginUI.exe</em></p>
+
+<p>This interface is generated by a process called <strong>LogonUI.exe</strong>, which is started by another process known as <strong>Winlogon</strong>.</p>
+
+<p>As part of the authentication process, <strong>Winlogon.exe</strong> launches <strong>LogonUI.exe</strong> , which then loads a component called the <strong>Credential Provider</strong>.</p>
+
+<p>The <strong>Credential Providers</strong> is essentially the interface where you enter your username and password.</p>
+
+<p style="text-align: center;"><img src="/assets/images/Kerberos/CredProv.png" alt="Cred Provider" />
+<em>Credential Provider - Usrname/Password</em></p>
+
+<p><strong>Credential Provider</strong>: <em>These are components that Windows uses to collect login credentials (such as passwords, PINs, and smart cards) and securely transmit them for authentication.</em></p>
+
+<p>Windows includes built-in <strong>Credentials Providers</strong> for different authentication methods like passwords, PINs, smart cards, and biometrics. However, third-party providers, such as multi-factor authentication (MFA) solutions, can also be integrated.</p>
+
+<p>To fully understand the <strong>Logon Process</strong>, we must also consider the <strong>LSASS</strong> (<em>Local Security Authority Subsystem Service</em>). <strong>LSASS</strong> is responsible for enforcing the system’s security policy. It verifies users logging onto a Windows computer or server, manages password changes, and creates access tokens.</p>
+
+<p>So when you enter your <strong>username and password</strong>, the <strong>Credential Provider</strong> retrieves these credentials and passes them to <strong>LogonUI</strong>. <strong>LogonUI</strong> then forwards them to <strong>Winlogon</strong>, which, in turn, hands them over to the <strong>LSASS</strong> process.</p>
+
+<p>Once received, <strong>LSASS</strong> processes the credentials and delegates them to the appropriate <strong>authentication package</strong> (e.g., Kerberos or NTLM) to verify the user’s identity and complete the authentication process.</p>
+
+<p><strong>Authentication Packages</strong> <em>are dynamic-link libraries (DLLs) that <strong>LSASS</strong> uses to process authentication requests. These packages define how credentials are validated and determine whether a user is granted access to the system.</em></p>
+
+<p>In summary, we can visualize the <strong>Logon Process</strong> as follows:</p>
+
+<p><img src="/assets/images/Kerberos/Logon Process.png" alt="Logon Process" />
+<em>Windows Logon Process</em></p>
+
+<p>In this process, a <strong>domain logon</strong> grants a user the necessary permissions to access both local and domain resources. For a domain logon to occur, the user must have an account in <strong>Active Directory</strong>. Additionally, the computer must have an account in the <strong>Active Directory</strong> domain and be physically connected to the network. Users must also possess the appropriate rights to log on to either a local computer or the domain. Information regarding the domain user account and group memberships is used to manage access to both domain and local resources.</p>
+
+<p>In our case, we are interested in <strong>Kerberos authentication</strong> and how <strong>Kerberos</strong> works internally.</p>
+
+<h1 id="kerberos">Kerberos</h1>
+
+<p>Kerberos is a network authentication protocol that ensures secure user and service authentication over potentially untrusted networks. It is also used to access resources across the network securely.</p>
+
+<h2 id="non-technical---kerberos">Non Technical - Kerberos</h2>
+
+<p>Before diving into the technical details, here’s a simple explanation of how Kerberos works for non-technical. 😊</p>
+
+<p>Imagine you’re at a birthday party, and there’s a huge pile of delicious <strong>Cupcakes</strong>. But you can’t just take one. You need a special <strong>ticket</strong> 🎟️ from the party host to prove you’re allowed to get a Cupcake.</p>
+
+<ul>
+  <li>You go to the party host and say, “Hey, it’s me! Can I have a ticket to prove I am invited”?</li>
+  <li>The host checks if you’re invited and gives you an invitation pass.</li>
+  <li>Now, you take your invitation pass and go to the host assistant.</li>
+  <li>You say, “Here’s my invitation Ticket. Can I get a Cupcake ticket”?</li>
+  <li>The assistant gives you a Cupcake ticket.</li>
+  <li>You show this ticket to the Cupcake table (the service you want to access).</li>
+  <li>The cupcake table checks your Cupcake ticket and says, “Yep! You’re allowed to take a Cupcake!”</li>
+  <li>You finally get your Cupcake!</li>
+</ul>
+
+<p><img src="/assets/images/Kerberos/Kerberos cupcake.png" alt="Kerberos Protocol - Non Technical" />
+<em>Kerberos Protocol - Non Technical</em></p>
+
+<p>Now let’s say you enjoyed your Cupcake and want another <strong>Cupcake</strong> along with some <strong>Ice Cream</strong>.</p>
+
+<p>Since you already have a <strong>Cupcake Ticket</strong> from before, you don’t need to request it again. However, you still need to ask for an <strong>Ice Cream Ticket</strong> to get the ice cream.</p>
+
+<p>These are the steps that you need to do in order to have the <strong>Cupcake</strong> and the <strong>Ice Cream</strong>.</p>
+
+<ul>
+  <li>You go to the <strong>Cupcake Server</strong> and show your <strong>Cupcake Ticket</strong> to get another cupcake.</li>
+  <li>You go to the <strong>Host Assistant</strong> and show your <strong>Invitation Ticket</strong> to get an <strong>Ice Cream Ticket</strong>.</li>
+  <li>Finally, you go to the <strong>Ice Cream Server</strong>, show your <strong>Ice Cream Ticket</strong>, and get your ice cream.</li>
+</ul>
+
+<p>And just like that, you’ve got both your <strong>Cupcake</strong> and <strong>Ice Cream</strong>!</p>
+
+<p><img src="/assets/images/Kerberos/Kerberos Ice Cream.png" alt="Kerberos Protocol - Non Technical" />
+<em>Kerberos Protocol - Non Technical</em></p>
+
+<p>Now that we’ve grasped the basic concept of the protocol, let’s dive into the technical details.</p>
+
+<h2 id="technical---kerberos">Technical - Kerberos</h2>
+
+<h3 id="terms-and-concepts">Terms and concepts</h3>
+
+<h4 id="realm">Realm</h4>
+
+<p>A <strong>realm</strong> is essentially a designated authentication domain that defines the scope within which an authentication server is responsible for validating users, devices, or services. It sets the boundaries for where authentication can occur. However, it’s important to understand that a user and a service don’t need to be in the same realm to authenticate. If the two realms trust each other, authentication can be carried out between them, a concept known as <strong>Cross-Authentication</strong>. A user or service is considered part of a realm if it shares a secret, like a password or key, with the authentication server of that realm.</p>
+
+<p>We can say that term <strong>realm</strong> is used to describe the scope of the Kerberos authentication. In Windows, the realm name is derived from the DNS name for the domain (ex: <strong>wild.local</strong>, <strong>google.com</strong>,..)</p>
+
+<h4 id="principal">Principal</h4>
+
+<p>We can combine the username and the realm to form a user <strong>Principal Name</strong>, commonly written with an at symbol <em>@</em> (ex: alice@wild.local).
+A <strong>Principal</strong> also refer to the entries in the authentication server database. A principal is associated with each user, host or service of a given realm.</p>
+
+<p>The principal is typically represented by the format:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;name&gt;/[&lt;instance&gt;]@&lt;realm&gt; 
+</code></pre></div></div>
+
+<p>Here’s how you can distinguish between a <strong>user</strong> and a <strong>service</strong> principal:</p>
+
+<h5 id="user-principal">User Principal</h5>
+<p>A <strong>user principal</strong> represents a specific individual user. It is typically represented by a simple name without any specific service or instance. For example:<br />
+By following this process, Kerberos ensures that the client’s identity is authenticated securely before granting access to network services.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>alice@WILD.LOCAL
+</code></pre></div></div>
+
+<p>This refers to a user named <strong>alice</strong> in the <strong>WILD.LOCAL</strong> realm.</p>
+
+<p>we can also add the the instance to represent a specific role or group.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>alice/manager@WILD.LOCAL
+</code></pre></div></div>
+
+<blockquote>
+  <p>The instance is usually not used on user Principals</p>
+</blockquote>
+
+<h5 id="service-principal">Service Principal</h5>
+
+<p>A <strong>service principal</strong> is used for a service or application running on a server. It usually includes the service name (such as HTTP, FTP, etc.) followed by the server’s hostname or instance. For example:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/DC01@WILD.LOCAL
+MSSQL/DC01.WILD.LOCAL:1433@WILD.LOCAL
+</code></pre></div></div>
+<p>First example represents the <strong>HTTP service</strong> running on the <strong>DC01</strong> server in the <strong>WILD.LOCAL</strong> realm.</p>
+
+<p>Second example represents the <strong>MSSQL service</strong> running on the <strong>DC01</strong> server, on port <strong>1433</strong> on in the <strong>WILD.LOCAL</strong> realm.</p>
+
+<p>In summary:</p>
+<ul>
+  <li><strong>User principal:</strong> <code class="language-plaintext highlighter-rouge">&lt;username&gt;@&lt;realm&gt;</code></li>
+  <li><strong>Service principal:</strong> <code class="language-plaintext highlighter-rouge">&lt;service&gt;/&lt;Instance&gt;@&lt;realm&gt;</code></li>
+</ul>
+
+<p>This distinction helps Kerberos know if it’s authenticating a person or a service.</p>
+
+<h5 id="operation-principal">Operation Principal</h5>
+
+<p>In addition to users and services, some principals are essential for the authentication system itself. One key example is:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>krbtgt/WILD.LOCAL@WILD.LOCAL
+</code></pre></div></div>
+<p>which is responsible for securing the <strong>Ticket Granting Ticket (TGT)</strong> by encrypting it. This special principal helps ensure that authentication requests are properly validated within the Kerberos system. We’ll explore this in more detail later.</p>
+
+<h4 id="key-distribution-center-kdc">Key Distribution Center (KDC)</h4>
+
+<p>In the Kerberos authentication protocol, the <strong>Key Distribution Center</strong> (KDC) is a crucial component responsible for managing secure authentication within a network. It resides entirely on a single physical server (it often coincides with a single process), the <strong>KDC</strong> is logically divided into <strong>two main services</strong> and a <strong>Databse</strong>:</p>
+
+<ul>
+  <li><strong>Authentication Server (AS)</strong></li>
+  <li><strong>Ticket Granting Server (TGS)</strong></li>
+  <li><strong>Kerberos Database</strong></li>
+</ul>
+
+<h5 id="authentication-server-as">Authentication Server (AS)</h5>
+
+<p>The Authentication Server (<strong>AS</strong>) handles the initial authentication of users or clients. When a client attempts to log in, it sends a request to the AS. The AS verifies the client’s credentials against its <strong>database</strong> and, upon successful verification, issues a <strong>Ticket Granting Ticket</strong> (TGT). This TGT is encrypted using the <strong>krbtgt</strong> principal (Host Party) password hash, ensuring its integrity and authenticity. The client can then use this TGT to request access to other services (Cupcake Tiket).</p>
+
+<h5 id="ticket-granting-server-tgs">Ticket Granting Server (TGS)</h5>
+
+<p>Once the client has obtained a <strong>TGT</strong>, it can request access to specific services by presenting the TGT to the TGS. The TGS (Party host assistant) validates the TGT and issues a <strong>Service Ticket</strong> (Cupcake Ticket), which the client can then use to authenticate to the desired service.</p>
+
+<h5 id="kerberos-database">Kerberos Database</h5>
+
+<p>The <strong>KDC</strong> maintains a secure <strong>database</strong> that stores <strong>secret keys</strong> for all Principals within the network. These keys are essential for encrypting and decrypting the tickets and ensuring that only <strong>authorized principals</strong> can access specific services. The database acts as a trusted repository that both the AS and TGS rely upon to perform their respective functions securely.</p>
+
+<p><img src="/assets/images/Kerberos/KDC.png" alt="KDC" />
+<em>KDC</em></p>
+
+<h4 id="ticket">Ticket</h4>
+
+<p>Based on the above we can simply say that a <strong>ticket</strong> is a data structure that securely transmits authentication and session information between clients and services. Issued by the <strong>Key Distribution Center (KDC)</strong>, tickets confirm a Principal identity and authorize access to network resources without repeatedly transmitting passwords.</p>
+
+<h3 id="kerberos-operation">Kerberos Operation</h3>
+
+<p>The Kerberos authentication protocol operates through a series of exchanges to securely verify the identities of clients and services within a network. A key component of this process is the <strong>Kerberos Authentication Service Request (KRB_AS_REQ)</strong>, which initiates the authentication sequence.</p>
+
+<h4 id="kerberos-authentication-server-request-krb_as_req">Kerberos Authentication Server Request (KRB_AS_REQ)</h4>
+
+<p>The <strong>Local Security Authority Subsystem Service (LSASS)</strong> is responsible for generating <strong>KRB_AS_REQ</strong>, which is sent to the Authentication Server (<strong>AS</strong>). The <strong>KRB_AS_REQ</strong> contains two <strong>important</strong> components:</p>
+
+<ul>
+  <li>
+    <p><strong>User Principal Name (UPN):</strong> This identifies the client requesting authentication (e.g., <em>bob@wild.local</em>).</p>
+  </li>
+  <li>
+    <p><strong>Pre-authentication Data:</strong> This consists of a <strong>timestamp</strong> encrypted with the client’s key, derived from the user’s password.</p>
+  </li>
+</ul>
+
+<h5 id="process-flow">Process Flow</h5>
+
+<ol>
+  <li>
+    <p><strong>Client Request:</strong> The client constructs the <strong>KRB_AS_REQ message</strong>, including the <strong>UPN</strong> and <strong>Pre-Authentication</strong> data.</p>
+  </li>
+  <li>
+    <p><strong>KDC Validation:</strong> Upon receiving the <strong>KRB_AS_REQ</strong>, the Authentication Server (<strong>AS</strong>) performs the following checks:</p>
+
+    <ul>
+      <li>
+        <p><strong>User Verification:</strong> The <strong>AS</strong> verifies the existence of the client principal (<em>retrieved from its database</em>).</p>
+      </li>
+      <li>
+        <p><strong>Pre-Authentication Check:</strong> The <strong>AS</strong> decrypts the <strong>timestamp</strong> using the client’s key (<em>retrieved from its database</em>). A valid decryption confirms the client’s identity and ensures the request is recent.</p>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<p><img src="/assets/images/Kerberos/KRB_AS_REQ Diag.png" alt="Process Flow" />
+<em>Process Flow</em></p>
+
+    </div>
+
+    <div class="post__share">
+      <div class="share__list">
+        <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://nullity.agharghar.com/Kerberos-Authentication-Explained" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>
+
+        <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Kerberos%20Authentication%20Explained&url=https://nullity.agharghar.com/Kerberos-Authentication-Explained" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>
+
+        <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url=https://nullity.agharghar.com/Kerberos-Authentication-Explained&amp;media=https://nullity.agharghar.com/assets/images/Kerberos/kerberos.png&amp;description=Kerberos%20Authentication%20Explained" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>
+        <a class="share__link share__linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://nullity.agharghar.com/Kerberos-Authentication-Explained&title=Kerberos%20Authentication%20Explained" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn" rel="nofollow"><i class="ion ion-logo-linkedin"></i></a>
+      </div>
+    </div>
+
+    <div class="post__navigation">
+      
+      
+    </div>
+
+  </article>
+</div>
+<!-- end post -->
+<script src=" /assets/js/copycode.js?v=3b5da22a50c862ae6fffa05857051e90 "></script>
 
 
 
 
 
+
+<div class="container">
+  <div class="related-posts ">
+    <div class="row">
+      <div class="col col-12">
+        <div class="container__inner">
+          <h3 class="related-title">You may also like</h3>
+          <div class="row grid">
+
+          
+            
+            
+
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <!-- begin comments -->
 <div class="container">
   <div class="row">
     <div class="col col-12">
-      <div class="container__inner">
-        <div class="row grid">
-          
-            
-              <div class="article col col-6 col-t-12 grid__post animate article--big">
-  <div class="article__inner">
-
-    
-    <a class="article__image" href="/Kerberos-Authentication-Explained">
-      <img class="lazy" data-src="/assets/images/Kerberos/kerberos.png" alt="Kerberos Authentication Explained">
-    </a>
-    
-
-    <div class="article__content">
-
-      <div class="article__meta">
-        <span class="article__minutes">
-          
-            
-              10 min read
-          
-          <time class="article__date" datetime="2025-03-08T00:00:00+01:00">Mar 8, 2025</time>
-        </span>
-      </div>
-
-      <h2 class="article__title">Kerberos Authentication Explained</h2>
-
-      <p class="article__excerpt">Kerberos is the authentication protocol used in Windows environments, replacing Netlogon as the main method for user authentication on domain controllers...</p>
-
-      <div class="article__bottom">
-
-        
-        <div class="article__author">
-          <a href="/about/" aria-label="Nullity"><img class="article__author-image lazy" data-src="/assets/images/avatar.png" alt="Nullity's Picture"></a>
-        </div>
-        
-
-        <div class="article__bottom-meta">
-          
-            <a href="/about/" class="article__author-link">Nullity</a>
-          
-          
-            <span>in</span>
-            <span class="article-tags">
-              
-                <a href="/tag/Kerberos" class="article__tag">Kerberos</a>
-              
-                <a href="/tag/Active Directory" class="article__tag">Active Directory</a>
-              
-                <a href="/tag/Authentification" class="article__tag">Authentification</a>
-              
-            </span>
-          
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</div>
-            
-          
+      <div class="disqus-inner">
+        <div id="disqus_thread" class="post-comments">
+          <div id="disqus_empty"></div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col col-12 load-more">
-      
-      
-      
-    </div>
-  </div>
-</div>
+<script>
+  function load_disqus() {
+    var disqus_shortname = 'none-agharghar-com',
+      is_disqus_empty = document.getElementById('disqus_empty'),
+      disqus_target = document.getElementById('disqus_thread'),
+      disqus_embed = document.createElement('script'),
+      disqus_hook = (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]);
+
+    if (disqus_target && is_disqus_empty) {
+      disqus_embed.type = 'text/javascript';
+      disqus_embed.async = true;
+      disqus_embed.src = '//' + disqus_shortname + '.disqus.com/embed.js' ;
+      disqus_hook.appendChild(disqus_embed);
+      is_disqus_empty.remove();
+    }
+  }
+
+  window.addEventListener('scroll', function (e) {
+    var currentScroll = document.scrollingElement.scrollTop;
+    var disqus_target = document.getElementById('disqus_thread');
+
+    if (disqus_target && (currentScroll > disqus_target.getBoundingClientRect().top - 150)) {
+      load_disqus('disqus_shortname');
+    }
+  }, false);
+
+</script>
+<!-- end comments --> 
   </main> 
   <!-- end content -->
   
@@ -440,7 +733,7 @@
   var base_url = "",
     pagination_next_url = base_url + '/page2',
     pagination_next_page_number = '',
-    pagination_available_pages_number = '1';
+    pagination_available_pages_number = '';
 </script>
 </body>
 
