@@ -8,7 +8,7 @@ image:  '/assets/images/Kerberos/kerberos.png'
 tags:   [Kerberos,Active Directory,Authentification]
 toc: true
 #featured: true
-published: true
+published: false
 ---
 
 # Introduction 
@@ -185,7 +185,7 @@ The Authentication Server (**AS**) handles the initial authentication of users o
 ##### Ticket Granting Server (TGS)
 
 Once the client has obtained a **TGT**, it can request access to specific services by presenting the TGT to the TGS. The TGS (Party host assistant) validates the TGT and issues a **Service Ticket** (Cupcake Ticket), which the client can then use to authenticate to the desired service.
-
+    
 
 ##### Kerberos Database
 
