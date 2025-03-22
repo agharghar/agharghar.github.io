@@ -208,7 +208,13 @@ The **Local Security Authority Subsystem Service (LSASS)** is responsible for ge
 
 - **User Principal Name (UPN):** This identifies the client requesting authentication (e.g., *bob@wild.local*).
 
-- **Pre-authentication Data:** This consists of a **timestamp** encrypted with the client's key, derived from the user's password.
+- **Pre-authentication Data:** This includes a **Timestamp** that is encrypted using a key generated from the user's password.
+
+![Process Flow]({{site.baseurl}}/assets/images/Kerberos/KRB_AS_REQ Diag.png)
+*Process Flow*
+
+![Process Flow]({{site.baseurl}}/assets/images/Kerberos/krb_as_req.png)
+*KRB_AS_REQ*
 
 ##### Process Flow
 
@@ -221,5 +227,5 @@ The **Local Security Authority Subsystem Service (LSASS)** is responsible for ge
    - **Pre-Authentication Check:** The **AS** decrypts the **timestamp** using the client's key (*retrieved from its database*). A valid decryption confirms the client's identity and ensures the request is recent.
 
 
-![Process Flow]({{site.baseurl}}/assets/images/Kerberos/KRB_AS_REQ Diag.png)
-*Process Flow*
+![Process Flow]({{site.baseurl}}/assets/images/Kerberos/krb_as_req_OP.png)
+*AS Verification*
